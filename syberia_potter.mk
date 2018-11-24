@@ -18,10 +18,9 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/motorola/potter/full_potter.mk)
 
-# Inherit some common PixelExperience stuff.
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Syberia-Project stuff.
+$(call inherit-product, vendor/syberia/config/common_full_phone.mk)
+$(call inherit-product, vendor/syberia/config/telephony.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -29,11 +28,15 @@ TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := potter
-PRODUCT_NAME := aosp_potter
+PRODUCT_NAME := syberia_potter
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto G5 Plus"
+
+#Syberia-Official
+SYBERIA_BUILD_TYPE := OFFICIAL
