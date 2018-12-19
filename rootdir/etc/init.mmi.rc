@@ -47,9 +47,13 @@ on post-fs
     mkdir /persist/sds 0700 vold vold
     mkdir /persist/rfs/msm/mpss/mot_rfs 0771 rfs system
 
+    # MOT_LED_CALIBRATION
+    chown cameraserver /persist/camera/ledcal
+
     # This dir is used to store any OMA(both DM and CP) files in persist partition
     # Any app with radio UID or oem_5004 GID can read/write/execute files in this dir.
     mkdir /persist/public/oma 0775 radio oem_5004
+    mkdir /persist/camera/ledcal 0775 camera mot_tcmd
 
     chown oem_5004 oem_5004 /persist/factory/fti
     chmod 0660 /persist/factory/fti
